@@ -618,7 +618,6 @@
   
           res.json()
           .then(data => {
-              //for (chat of data) {
               for (let i = data.length-1; i >= 0; i--) {
                 let chat = data[i];
                 let date = new Date(chat.lastMessageDate);
@@ -1067,11 +1066,7 @@
           
                 <div class='chat-window--footer'>
                   <div class='content'>
-                    <input 
-                      type='text' 
-                      placeholder='Say something'
-                      id="input-msg"
-                      />
+                    <input type='text' placeholder='Say something' id="input-msg" />
                   </div>
                   <div class='pos'>
                     <button onclick="handleSend()">
@@ -1351,19 +1346,19 @@
       </style>
 
       <behavior>
-        let query = mobilang::param::uid;
+        let query = "mobilang::param::uid";
 
     if (query.includes("uid")) {
       createNewChat();
     }
     else {
-      query = mobilang::param::id;
+      query = "mobilang::param::id";
       loadChat();
       setInterval(() => loadChat(), 1000);
     }
 
     function createNewChat() {
-      const userId = mobilang::param::uid;
+      const userId = "mobilang::param::uid";
       const myId = localStorage.getItem("sessionId");
       const chatBody = document.querySelector(".chat-window--body");
       chatBody.innerHTML = "";
@@ -1387,12 +1382,12 @@
 
         window.location.href = "mobilang::screen::chat?id=" + id;
       }).catch(e => {
-        console.log(e)
+        console.log(e);
       })
     }
 
     function loadChat() {
-      const chatId = mobilang::param::id;
+      const chatId = "mobilang::param::id";
       const myId = localStorage.getItem("sessionId");
       const chatBody = document.querySelector(".chat-window--body");
 
@@ -1453,7 +1448,7 @@
     }
 
     function handleSend() {
-      const msg = mobilang::input::input-msg;
+      const msg = "mobilang::input::input-msg";
       const myId = localStorage.getItem("sessionId");
       const chatId = query.split("id=")[1];
 

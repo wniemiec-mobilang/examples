@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>new</title>
+        <style>
+button { padding: 0; }
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol,ul {
+list-style: none;
+}
+blockquote,q {
+quotes: none;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+* {
+box-sizing: border-box;
+}
+.container {
+height: 100vh;
+width: 100vw;
+display: flex;
+}
+.side-bar-container {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+.side-bar-container header {
+height: 10vh;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #075D57;
+}
+.side-bar-container header .left {
+display: flex;
+align-items: center;
+}
+.side-bar-container header .left button {
+height: 8vh;
+width: 8vh;
+background-color: transparent;
+border: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+border-radius: 50%;
+}
+.side-bar-container header .left button:after {
+content: '\2190';
+color: white;
+font-size: 6vh;
+margin-bottom: 2vh;
+}
+.side-bar-container header .header-text {
+color: white;
+font-size: 3vh;
+margin-left: 2vh;
+font-weight: bold;
+font-family: Arial, Helvetica, sans-serif;
+}
+.side-bar-container header .header-actions button {
+border: 0;
+background-color: transparent;
+outline: 0;
+color: #919191;
+height: 40px;
+border-radius: 20px;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+}
+.side-bar-container .search {
+background-color: #f6f6f6;
+border-bottom: 1px solid #eee;
+padding: 5px 15px;
+}
+.side-bar-container .search .search-input {
+background-color: #fff;
+height: 40px;
+border-radius: 20px;
+display: flex;
+align-items: center;
+padding: 0 10px;
+}
+.side-bar-container .search .search-input input {
+flex: 1;
+border: 0;
+outline: 0;
+background-color: transparent;
+margin-left: 10px;
+}
+.side-bar-container .chatlist {
+flex: 1;
+background-color: white;
+overflow-y: auto;
+}
+.side-bar-container .chatlist::-webkit-scrollbar {
+width: 6px;
+height: 6px;
+}
+.side-bar-container .chatlist::-webkit-scrollbar-thumb {
+background-color: rgba(0, 0, 0, 0.2);
+}
+.chat-list-item-container {
+height: 10vh;
+display: flex;
+background-color: transparent;
+border: 0;
+width: 100%;
+align-items: center;
+border-bottom: 0.1vh solid #eee;
+}
+.chat-list-item-container:hover {
+background-color: #f5f5f5;
+}
+.chat-list-item-container:active {
+background-color: #ebebeb;
+}
+.chat-list-item-container .chatlist-item--avatar {
+width: 10vh;
+height: 10vh;
+border-radius: 50%;
+margin-left: 5vw;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.chat-list-item-container .chatlist-item--avatar img {
+width: 8vh;
+height: 8vh;
+border-radius: 50%;
+}
+.chat-list-item-container .chatlist-item--lines {
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding-right: 5vw;
+margin-left: 5vw;
+height: 10vh;
+flex-wrap: wrap;
+min-width: 0;
+}
+.chat-list-item-container .chatlist-item--lines .chatlist-item--line {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+.chat-list-item-container .chatlist-item--lines .chatlist-item--line h1 {
+font-size: 3vh;
+color: black;
+margin-bottom: 1vh;
+}
+.chat-list-item-container .chatlist-item--lines .chatlist-item--line time {
+font-size: 2.3vh;
+color: #999;
+}
+.chat-list-item-container .chatlist-item--lines .chatlist-item--line p {
+font-size: 2.5vh;
+color: #999;
+width: 100%;
+margin: 0;
+text-align: left;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.tab-bar {
+display: flex;
+align-items: center;
+background-color: #075D57;
+height: 6vh;
+}
+.tab-bar .camera {
+height: 6vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: transparent;
+border: 0;
+outline: 0;
+margin: 0 1.4vh;
+}
+.tab-bar .camera img {
+height: 2.5vh;
+}
+.tab-bar .text {
+color: white;
+background-color: transparent;
+border: 0;
+outline: 0;
+padding: 1.5vh 0;
+margin: 0 1.5vh;
+font-size: 2vh;
+font-weight: bold;
+}
+.tab-bar .active {
+border-bottom: 0.7vh solid white;
+}
+.dots:after {
+content: '\2807';
+font-size: 3vh;
+color: white;
+margin-right: 1vw;
+}
+.search-icon {
+height: 2.4vh;
+margin-right: 3vw;
+}
+.new-message {
+background-color: #02CC44;
+position: fixed;
+height: 10vh;
+width: 10vh;
+border-radius: 50%;
+bottom: 0;
+right: 0;
+margin-right: 3vh;
+margin-bottom: 3vh;
+border: 0;
+}
+.new-message img {
+width: 3vh;
+height: 3vh;
+}
+        </style>
+    </head>
+    <body>
+<html>
+<div class="container">
+<div class="side-bar-container">
+<header>
+<div class="left">
+<button onclick="handleBack()">
+</button>
+<h1 class="header-text">
+Contacts
+</h1>
+</div>
+<div class="header-actions">
+<button>
+<img src="https://www.inf.ufrgs.br/~wniemiec/shared/img/search.png" class="search-icon"/>
+</button>
+<button class="dots">
+</button>
+</div>
+</header>
+<div class="chatlist">
+</div>
+</div>
+</div>
+</html>
+    </body>
+    <script>
+"use strict";
+
+function loadChat() {
+  var chatlist = document.querySelector(".chatlist");
+  chatlist.innerHTML = "";
+  fetch("http://192.168.0.62:8080/user/").then(function (res) {
+    if (res.status != 200) {
+      return;
+    };
+    res.json().then(function (data) {
+      var myId = localStorage.getItem("sessionId");
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          user = _step.value;
+
+          if (user.id == myId) {
+            continue;
+          };
+          chatlist.innerHTML += "<button class=\"chat-list-item-container\" onclick=\"startNewChatWith(" + user.id + ")\"><div class='chatlist-item--avatar'><img src=\"" + (!user.avatar ? "https://www.w3schools.com/howto/img_avatar.png" : user.avatar) + "\" alt='' /></div><div class='chatlist-item--lines'><div class='chatlist-item--line'><h1>" + user.name;
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      ;
+    });
+  }).catch(function (e) {});
+}
+loadChat();
+function startNewChatWith(id) {
+window.location.href=mobilang::screen::chat?uid=id;
+}
+function handleBack() {
+  window.location.href = "home.html";
+}
+    </script>
+</html>
